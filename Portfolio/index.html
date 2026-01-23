@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
+
 
 <head>
     <meta charset="UTF-8" />
@@ -19,26 +20,7 @@
     <meta property="og:description" content="AI, full-stack web, blockchain, and real shipped projects.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://YOUR-FUTURE-DOMAIN">
-    <meta property="og:image" content="https://portfolio-oe81-git-main-bhaveshbagul0707-2340s-projects.vercel.app/assets/profile-og.png">
-
-    <!-- Initial theme: auto-detect system + saved preference -->
-    <script>
-        (function () {
-            try {
-                const userTheme = localStorage.getItem('theme');
-                const systemPrefersDark = window.matchMedia &&
-                    window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-                if (userTheme === 'dark' || (!userTheme && systemPrefersDark)) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-            } catch (e) {
-                // Fail silently
-            }
-        })();
-    </script>
+    <meta property="og:image" content="https://YOUR-FUTURE-DOMAIN/assets/profile-og.png">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -360,12 +342,6 @@
                     <a href="#experience" class="nav-link text-gray-300 hover:text-white">Experience</a>
                     <a href="#education" class="nav-link text-gray-300 hover:text-white">Education</a>
                     <a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
-
-                    <!-- Theme toggle -->
-                    <button id="theme-toggle"
-                        class="ml-4 bg-slate-900/60 text-gray-200 hover:bg-slate-800 hidden md:inline-flex items-center gap-2">
-                        <span id="theme-toggle-icon">🌙</span>
-                    </button>
                 </div>
 
                 <!-- Hamburger button (only mobile) -->
@@ -1034,11 +1010,10 @@
     <script>
         let vantaEffect = null;
 
-        function initVantaIfNeeded() {
-            const prefersDark = document.documentElement.classList.contains('dark');
-            if (prefersDark && !vantaEffect) {
-                vantaEffect = VANTA.GLOBE({
-                    el: "#vanta-bg",
+         function initVanta() {
+        if (!vantaEffect) {
+            vantaEffect = VANTA.GLOBE({
+                el: "#vanta-bg",
                     mouseControls: true,
                     touchControls: true,
                     gyroControls: false,
@@ -1247,6 +1222,4 @@
     </script>
 </body>
 
-
 </html>
-
