@@ -179,11 +179,33 @@
         }
 
         .skill-card {
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             background: rgba(15, 23, 42, 0.9);
             border: 1px solid rgba(148, 163, 184, 0.4);
         }
+
+        /* FIX: Uniform skill cards for marquee */
+        .skill-card {
+            min-width: 180px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* 🔥 THIS FIXES EMPTY LOOK */
+            gap: 0.5rem;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            border-radius: 1rem;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+
 
         html:not(.dark) .skill-card {
             background: rgba(255, 255, 255, 0.9);
@@ -386,11 +408,12 @@
                     <span id="typing-text"></span><span class="cursor"></span>
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    Computer Engineering Student & Full-Stack / GenAI Developer
+                    Aspiring Data Scientist | ML & Analytics Engineer |GenAI Developer
                 </p>
                 <p class="text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="400">
-                    I build AI-powered products, intuitive web experiences, and secure systems.
-                    Currently focused on Generative AI, ML pipelines, and cloud deployment.
+                    I analyze data, build predictive models, and turn raw datasets into actionable insights
+                    using Python, machine learning, and visualization tools.
+
                 </p>
                 <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="500">
                     <a href="#contact"
@@ -408,90 +431,120 @@
         <!-- Skills Section -->
         <section id="skills" class="py-20 relative">
             <div class="container mx-auto px-6 relative">
-                <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl z-0">
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 relative z-10 section-title"
-                    data-aos="fade-up">
-                    <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Skills
-                        &</span> Technologies
+
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 section-title" data-aos="fade-up">
+                    <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                        Data Science &
+                    </span> Technical Skills
                 </h2>
-                <div class="skills-marquee overflow-hidden relative z-10" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent w-32 z-20"></div>
-                    <div class="absolute inset-0 bg-gradient-to-l from-blue-500/10 to-transparent w-32 right-0 z-20">
+
+                <!-- ===== MARQUEE ===== -->
+                <div class="skills-marquee overflow-hidden relative z-10" data-aos="fade-up">
+
+                    <!-- Left gradient -->
+                    <div
+                        class="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-blue-500/10 to-transparent z-20 pointer-events-none">
                     </div>
-                    <div class="skills-track whitespace-nowrap py-4">
-                        <!-- Skills -->
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                alt="HTML5" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">HTML5</span>
-                        </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                                alt="CSS3" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">CSS3</span>
-                        </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                alt="JavaScript" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">JavaScript</span>
-                        </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
+
+                    <!-- Right gradient -->
+                    <div
+                        class="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-blue-500/10 to-transparent z-20 pointer-events-none">
+                    </div>
+
+                    <div class="skills-track whitespace-nowrap py-4 pl-36">
+
+                        <!-- Skill -->
+                        <div class="skill-card mx-4">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                alt="Python" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">Python</span>
+                                class="w-10 h-10" />
+                            <span class="font-semibold">Python</span>
+                            <span class="text-sm text-gray-400">Programming</span>
                         </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
+
+                        <div class="skill-card mx-4">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                                class="w-10 h-10" />
+                            <span class="font-semibold">Pandas</span>
+                            <span class="text-sm text-gray-400">Data Analysis</span>
+                        </div>
+
+                        <div class="skill-card mx-4">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
+                                class="w-10 h-10" />
+                            <span class="font-semibold">NumPy</span>
+                            <span class="text-sm text-gray-400">Numerical Computing</span>
+                        </div>
+
+                        <div class="skill-card mx-4">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                                alt="MySQL" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">MySQL</span>
+                                class="w-10 h-10" />
+                            <span class="font-semibold">SQL</span>
+                            <span class="text-sm text-gray-400">Databases</span>
                         </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                alt="React" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">React</span>
+
+                        <div class="skill-card mx-4">
+                            <span class="text-xl">📊</span>
+                            <span class="font-semibold">Data Visualization</span>
+                            <span class="text-sm text-gray-400">Matplotlib · Seaborn</span>
                         </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"
-                                class="w-14 h-14 mb-3" />
-                            <span class="font-medium">PHP</span>
+
+                        <div class="skill-card mx-4">
+                            <span class="text-xl">🤖</span>
+                            <span class="font-semibold">Machine Learning</span>
+                            <span class="text-sm text-gray-400">Scikit-learn</span>
                         </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"
-                                class="w-14 h-14 mb-3" />
-                            <span class="font-medium">Git</span>
+
+                        <div class="skill-card mx-4">
+                            <span class="text-xl">🔍</span>
+                            <span class="font-semibold">EDA</span>
+                            <span class="text-sm text-gray-400">Exploration</span>
                         </div>
-                        <!-- Duplicate for seamless loop -->
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                alt="HTML5" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">HTML5</span>
+
+                        <!-- Duplicate for smooth loop -->
+                        <div class="skill-card mx-4">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                class="w-10 h-10" />
+                            <span class="font-semibold">Python</span>
+                            <span class="text-sm text-gray-400">Programming</span>
                         </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                                alt="CSS3" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">CSS3</span>
-                        </div>
-                        <div
-                            class="skill-card inline-flex flex-col items-center justify-center rounded-xl p-6 mx-4 border border-slate-700/50">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                alt="JavaScript" class="w-14 h-14 mb-3" />
-                            <span class="font-medium">JavaScript</span>
-                        </div>
+
                     </div>
                 </div>
+
+                <!-- ===== TOOLS SECTION (SEPARATE & CLEAN) ===== -->
+                <h3 class="text-3xl font-bold text-center mt-24 mb-12" data-aos="fade-up">
+                    <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                        Tools & Platforms
+                    </span>
+                </h3>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 max-w-5xl mx-auto" data-aos="fade-up">
+
+                    <div class="skill-card"><img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                            class="w-10 h-10"><span>Git</span></div>
+                    <div class="skill-card"><img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                            class="w-10 h-10 invert"><span>GitHub</span></div>
+                    <div class="skill-card"><img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg"
+                            class="w-10 h-10"><span>Jupyter</span></div>
+                    <div class="skill-card"><img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kaggle/kaggle-original.svg"
+                            class="w-10 h-10"><span>Kaggle</span></div>
+                    <div class="skill-card"><img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                            class="w-10 h-10"><span>VS Code</span></div>
+                    <div class="skill-card"><span class="text-xl">📈</span><span>Excel</span></div>
+
+                </div>
+
             </div>
         </section>
+
+
+
+
 
         <!-- Projects Section -->
         <section id="projects" class="py-20">
@@ -894,7 +947,7 @@
                             <h3 class="text-lg font-bold text-blue-400 mb-2">Bachelor of Technology</h3>
                             <p class="font-medium mb-1">Computer Engineering</p>
                             <p class="text-gray-400 text-sm mb-2">MIT Academy of Engineering, Pune</p>
-                            <p class="text-gray-500 text-sm">2022 – 2026 | CGPA: 7.25</p>
+                            <p class="text-gray-500 text-sm">2022 – 2026 | CGPA: 7.45</p>
                         </div>
 
                         <!-- HSC -->
@@ -980,7 +1033,7 @@
                             <i data-feather="linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://github.com/BHAVESH705/BHAVESH" target="_blank"
+                        <a href="https://github.com/bhaveshbagul0707" target="_blank"
                             class="btn-hover-effect bg-slate-700/60 hover:bg-blue-500 text-white px-6 py-4 rounded-xl font-medium flex items-center justify-center space-x-3 transition-all">
                             <i data-feather="github"></i>
                             <span>GitHub</span>
@@ -1010,10 +1063,10 @@
     <script>
         let vantaEffect = null;
 
-         function initVanta() {
-        if (!vantaEffect) {
-            vantaEffect = VANTA.GLOBE({
-                el: "#vanta-bg",
+        function initVantaIfNeeded() {
+            if (!vantaEffect) {
+                vantaEffect = VANTA.GLOBE({
+                    el: "#vanta-bg",
                     mouseControls: true,
                     touchControls: true,
                     gyroControls: false,
